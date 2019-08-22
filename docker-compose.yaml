@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  web:
+    build: ./apache-joomla
+    image: myjoomla
+    container_name: myjoomla-test
+    depends_on:
+      - "db"
+    ports:
+      - "8085:80"
+    volumes:
+      - "./apache-joomla/joomla:/var/www/html"
+  db:
+    build: ./mariadb-joomla
+    image: mymariadb
+    container_name: mymariadb-test
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: joomla
+      MYSQL_USER: joomla
+      MYSQL_PASSWORD: xyz123
+#    ports:
+#      - "3306:3306"
