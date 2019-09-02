@@ -11,6 +11,12 @@ if [ ! -e $STARTED_LOCK_FILE ]; then
   chmod -R g+w /var/www/html
   find /var/www/html -type d -exec chmod g+s {} \;
 
+  # create directories for virtuemart
+  mkdir -p /var/webdocs/joomla/virtuemart/invoices
+  mkdir -p /var/webdocs/joomla/virtuemart/keys
+  chown www-data /var/webdocs/joomla/virtuemart/invoices \
+    /var/webdocs/joomla/virtuemart/keys
+
   # edit configuration.php
   sed -i "/\$host = /s/'[^']*'/'mymariadb-test'/" /var/www/html/configuration.php
   sed -i "/\$user = /s/'[^']*'/'joomla'/" /var/www/html/configuration.php
