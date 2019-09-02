@@ -11,7 +11,6 @@ if [ ! -e $STARTED_LOCK_FILE ]; then
   chmod -R g+w /var/www/html
   find /var/www/html -type d -exec chmod g+s {} \;
 
-
   # edit configuration.php
   sed -i "/\$host = /s/'[^']*'/'mymariadb-test'/" /var/www/html/configuration.php
   sed -i "/\$user = /s/'[^']*'/'joomla'/" /var/www/html/configuration.php

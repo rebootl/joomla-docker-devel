@@ -19,6 +19,8 @@ Comment out the database copy line in ./mariadb-joomla/Dockerfile:
 
 ## Joomla setup
 
+### Existing installation (copy)
+
 Unzip an existing Joomla installation to ./apache-joomla/joomla.
 
 E.g., in ./apache-joomla/:
