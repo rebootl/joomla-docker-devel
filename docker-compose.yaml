@@ -8,9 +8,10 @@ services:
     depends_on:
       - "db"
     ports:
-      - "8085:80"
+      - "50101:80"
     volumes:
       - "./apache-joomla/joomla:/var/www/html"
+    restart: always
   db:
     build: ./mariadb-joomla
     image: mymariadb
@@ -20,5 +21,6 @@ services:
       MYSQL_DATABASE: joomla
       MYSQL_USER: joomla
       MYSQL_PASSWORD: xyz123
+    restart: always
 #    ports:
 #      - "3306:3306"
